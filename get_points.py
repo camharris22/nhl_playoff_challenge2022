@@ -13,7 +13,7 @@ def get_points(save_points=True):
             'CGY',
             'EDM',
             'COL',
-            'MIN',
+            'STL',
             'FLA',
             'TOR',
             'CAR',
@@ -38,7 +38,7 @@ def get_points(save_points=True):
     all_points = {}
     for entry_num, entry in entries.items():
         BracketEntry.calc_points(entry, results)
-        all_points[str(entry.entrant_name) + ' ' + str(entry_num)] = entry.points
+        all_points[str(entry.entrant_name) + ' - ' + str(entry_num)] = entry.points
 
     points_df = pd.DataFrame(all_points).T
     points_df['total_points'] = points_df.loc[:, 'rd1_points':'rd4_points'].sum(axis=1)

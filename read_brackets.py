@@ -15,9 +15,9 @@ def read_brackets(save_picks=True):
     all_picks = {}
     for entry_num, entry in entries.items():
         BracketEntry.read_brackets(entry)
-        all_picks[str(entry.entrant_name) + ' ' + str(entry_num)] = entry.picks
+        all_picks[str(entry.entrant_name) + ' - ' + str(entry_num)] = entry.picks
 
-    picks_df = pd.DataFrame(all_picks)
+    picks_df = pd.DataFrame(all_picks).T
     save_dir = "summary/"
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)

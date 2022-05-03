@@ -40,13 +40,15 @@ def get_points(save_points=True):
         BracketEntry.calc_points(entry, results)
         all_points[str(entry.entrant_name) + ' ' + str(entry_num)] = entry.points
 
-    points_df = pd.DataFrame(all_points)
+    points_df = pd.DataFrame(all_points).T
+    points_df['total_points'] = points_df.loc[:, 'rd1_points':'rd4_points'].sum(axis=1)
     save_dir = "summary/"
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
 
     if save_points == True:
         points_df.to_csv(save_dir + "results_2022.csv")
+        points_df.sort_values(by='total_points', ascending=False).to_excel(save_dir + "results_2022.xlsx", sheet_name="Sheet 1")
         print(f"points saved in folder: {save_dir}")
 
     return

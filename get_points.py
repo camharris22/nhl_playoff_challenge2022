@@ -10,27 +10,27 @@ def get_points(save_points=True):
     # Results by round (manually input)
     results = {
         'rd1': [
-            'CGY',
-            'EDM',
             'COL',
             'STL',
+            'CGY',
+            'EDM',
             'FLA',
-            'TOR',
+            'TBL',
             'CAR',
-            'PIT'
+            'NYR'
         ],
         'rd2': [
-            'EDM',
             'COL',
-            'FLA',
-            'PIT'
+            'EDM',
+            'TBL',
+            'NYR'
         ],
         'rd3': [
             'COL',
-            'FLA'
+            'NYR'
         ],
         'rd4': [
-            'FLA'
+            'NA'
         ]
     }
 
